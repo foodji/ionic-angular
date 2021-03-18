@@ -34,7 +34,7 @@ export function initEvents(s: Slides, plt: Platform): Function {
   const doc: any = plt.doc();
 
   s._supportTouch = (() => {
-    return !!(('ontouchstart' in win) || win.DocumentTouch && doc instanceof win.DocumentTouch);
+    return !!((window.navigator.maxTouchPoints > 0) || ('ontouchstart' in window) || (window.DocumentTouch && document instanceof window.DocumentTouch));
   })();
 
   // Define Touch Events
